@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PC/CLionProjects/BaiTapTKien/cmake-build-debug"
+			"value" : "C:/Users/PC/Desktop/C++/BaiTap/BaiTapThayKien/BaiTapTKien/cmake-build-debug"
 		},
 		{
 			"name" : "BaiTapTKien_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PC/CLionProjects/BaiTapTKien"
+			"value" : "C:/Users/PC/Desktop/C++/BaiTap/BaiTapThayKien/BaiTapTKien"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/PC/CLionProjects/BaiTapTKien/cmake-build-debug"
+			"value" : "c:/Users/PC/Desktop/C++/BaiTap/BaiTapThayKien/BaiTapTKien/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/PC/CLionProjects/BaiTapTKien"
+			"value" : "C:/Users/PC/Desktop/C++/BaiTap/BaiTapThayKien/BaiTapTKien"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",

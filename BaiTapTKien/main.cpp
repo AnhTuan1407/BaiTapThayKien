@@ -11,10 +11,6 @@ public:
     Student();
     Student(const string &id, const string &name) : id(id), name(name) {}
     void output();
-    void display();
-    void addStudent();
-    void editName();
-    list<Student> list;
 
     const string &getId() const;
 
@@ -48,6 +44,14 @@ void Student::setName(const string &name) {
     Student::name = name;
 }
 
+class StudentService
+{
+public:
+    void display();
+    void addStudent();
+    void editName();
+    list<Student> list;
+};
 
 class ReadAndWriteStudent{
 public:
@@ -87,8 +91,8 @@ void ReadAndWriteStudent::writeAllStudent(string path, list<Student> student) {
     }
 }
 
-void Student :: addStudent() {
-    list = ReadAndWriteStudent().readAllStudent("C:\\Users\\PC\\CLionProjects\\BaiTapTKien\\input");
+void StudentService :: addStudent() {
+    list = ReadAndWriteStudent().readAllStudent("C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input");
     int j;
     cout<<"Enter Number of Student:";
     cin>>j;
@@ -102,45 +106,55 @@ void Student :: addStudent() {
         Student s(id,name);
         list.push_back(s);
     }
-    ReadAndWriteStudent().writeAllStudent("C:\\Users\\PC\\CLionProjects\\BaiTapTKien\\input",list);
+    ReadAndWriteStudent().writeAllStudent("C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input",list);
 }
 void Student :: output()
 {
     cout << "Id: " << id << ", Name: " << name << endl;
 }
 
-void Student :: display()
+void StudentService :: display()
 {
-    list = ReadAndWriteStudent().readAllStudent("C:\\Users\\PC\\CLionProjects\\BaiTapTKien\\input");
+    list = ReadAndWriteStudent().readAllStudent("C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input");
     for(Student s : list)
     {
         s.output();
     }
 }
 
-void Student::editName() {
+void StudentService::editName() {
     string idCheck;
     string swapName;
     cout << "Enter idCheck: ";
     getline(cin, idCheck);
-    cin.ignore();
     cout << "Swap Name: ";
     getline(cin, swapName);
-    cin.ignore();
-    list = ReadAndWriteStudent().readAllStudent("C:\\Users\\PC\\CLionProjects\\BaiTapTKien\\input");
-    for(Student s : list)
-    {
-        if(idCheck == id)
-        {
-            name = swapName;
-        }else
-            cout << "ID is not found!" << endl;
+    list = ReadAndWriteStudent().readAllStudent(
+            "C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input");
+    Student student;
+    bool check = true;
+    Student *temp;
+    for (Student &s: list) {
+        if (idCheck == s.getId()) {
+            s.output();
+            temp = &s;
+            check = false;
+        }
+    }
+    if (check) {
+        cout << "ID is not found!" << endl;
+    }else {
+
+        cout << "Swap name: ";
+        temp->setName(swapName);
+        temp->output();
+        ReadAndWriteStudent().writeAllStudent("C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input",list);
     }
 }
 
 int main(){
     Student s[100];
-    Student student;
+    StudentService student;
 
     while (1)
     {
@@ -151,6 +165,7 @@ int main(){
         cout << "4. Exit." << endl;
         cout << "Enter your chose: ";
         cin >> choice;
+        cin.ignore();
         switch (choice) {
             case 1:
                 student.display();
