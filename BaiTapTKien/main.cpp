@@ -127,8 +127,7 @@ void StudentService::editName() {
     string swapName;
     cout << "Enter idCheck: ";
     getline(cin, idCheck);
-    cout << "Swap Name: ";
-    getline(cin, swapName);
+
     list = ReadAndWriteStudent().readAllStudent(
             "C:\\Users\\PC\\Desktop\\C++\\BaiTap\\BaiTapThayKien\\BaiTapTKien\\input");
     Student student;
@@ -136,6 +135,8 @@ void StudentService::editName() {
     Student *temp;
     for (Student &s: list) {
         if (idCheck == s.getId()) {
+            cout << "Swap Name: ";
+            getline(cin, swapName);
             s.output();
             temp = &s;
             check = false;
